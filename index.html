@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="theme-color" content="#00FF00">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death: Life's Greatest Mystery</title>
+    <style>
+      /* COLOURS
+        $death-purple: #C171A5;
+        $death-blue: #5082D5;
+        $death-salmon: #FF6050;
+        $death-orange: #D36B0D;
+        $death-green: #A3A32E;
+        $death-black: #000000;
+        $death-beige: #EDE1B0;
+      */
+      @font-face {
+        font-family: grotesk-xl;
+        src: url('fonts/Grotesk-ExtraLight.otf') format('opentype');
+        font-weight: 200;
+      }
+      @font-face {
+        font-family: grotesk;
+        src: url('fonts/Grotesk.otf') format('opentype');
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: patimura-thin;
+        src: url('fonts/Patimura-Thin.otf') format('opentype');
+        font-weight: 200;
+      }
+      @font-face {
+        font-family: patimura;
+        src: url('fonts/Patimura.otf') format('opentype');
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: patimura-sb;
+        src: url('fonts/Patimura-SemiBold.otf') format('opentype');
+        font-weight: 600;
+      }
+      @font-face {
+        font-family: patimura-b;
+        src: url('fonts/Patimura-Bold.otf') format('opentype');
+        font-weight: 700;
+      }
+      @font-face {
+        font-family: patimura-xb;
+        src: url('fonts/Patimura-ExtraBold.otf') format('opentype');
+        font-weight: 800;
+      }
+      @font-face {
+        font-family: patimura-black;
+        src: url('fonts/Patimura-Black.otf') format('opentype');
+        font-weight: 900;
+      }
+      @font-face {
+        font-family: talu;
+        src: url('fonts/Talu.otf') format('opentype');
+        font-weight: 400;
+      }
+      html, body {
+        background-color: rgb(60,64,68);
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        min-width: 380px;
+      }
+      .coral {
+        background-color: #FF6050;
+        color: #FFFFFF;
+      }
+      .white {
+        background-color: #FFFFFF;
+        color: #000000;
+      }
+      .beige {
+        background-color: #EDE1B0;
+        color: #000000;
+      }
+      .black {
+        background-color: #000000;
+        color: #FFFFFF;
+      }
+      a.button {
+        background-color: #FF6050;
+        color: #FFFFFF;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 28px;
+        padding-top: 4px;
+        border-radius: 15px;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        scale: 1;
+        transition-duration: 200ms;
+        font-family: patimura-b;
+      }
+      a.button:hover {
+        scale: 1.1;
+        transition-duration: 200ms;
+      }
+      a.large-button {
+        font-size: 28px;
+        line-height: 57px;
+        height: 57px;
+        padding: 0 30px;
+        margin: 29px 0;
+        border-radius: 40px;
+      }
+      h2 {
+        font-family: patimura-b;
+        text-transform: uppercase;
+        font-size: clamp(1rem, 4cqw, 47px);
+        line-height: clamp(1rem, 4cqw, 47px);
+        width: 100%;
+        margin: 0;
+      }
+      p, #caption {
+        font-family: patimura;
+        font-size: 20px;
+      }
+      #caption {
+        font-size: 26px;
+      }
+      summary {
+        font-family: patimura;
+        font-size: 28px;
+      }
+      .noselect {
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+      }
+
+      header, section, footer {
+        width: 100%;
+        display: flex;
+        flex: 1 1000px 1;
+        padding: 0 auto;
+        margin: 0 auto;
+      }
+
+      header > div,
+      section > div,
+      footer > div {
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: space-between;
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 29px;
+      }
+      a#RAM-logo {
+        height: 57px;
+        width: auto;
+        margin: auto 0;
+      }
+      a#RAM-logo > img {
+        height: 57px;
+        width: auto;
+      }
+
+      /* SECTION 1 */
+      section#section-1a > div {
+        padding-top: 29px;
+      }
+      section#section-1a > div img {
+        max-width: 50%;
+        height: auto;
+      }
+      img#death-logo {
+        margin: 0 0 29px 0;
+      }
+      section#section-1b > div {
+        padding-bottom: 29px;
+      }
+      section#section-1b > div > div {
+        max-width: 50%;
+        width: 50%;
+      }
+      section#section-1b > div > div#section-1b-text {
+        max-width: 50%;
+        width: 50%;
+        padding-top: 29px;
+      }
+      section#section-1b > div > div#death-bird-bottom {
+        width: 50%;
+        height: auto;
+      }
+      section#section-1b > div > div#death-bird-bottom > img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      section#section-2,
+      section#section-6 {
+        padding: 29px 0;
+      }
+      section#section-2 > div,
+      section#section-6 > div {
+        display: block;
+      }
+      section#section-2 > div > div,
+      section#section-6 > div > div {
+        margin-top: 29px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 57px;
+        justify-content: space-between;
+      }
+      section#section-2 > div > h2,
+      section#section-6 > div > h2 {
+        display: block !important;
+      }
+      section#section-2 > div > div > div,
+      section#section-6 > div > div > div {
+        display: flex;
+        flex-direction: column;
+      }
+      section#section-2 > div > div > div > img {
+        width: 100%;
+      }
+      section#section-2 > div > div > div > h3,
+      section#section-6 > div > div > div > h3,
+      section#section-8 > div > div > div > h3 {
+        font-family: patimura-sb;
+        font-size: 36px;
+        line-height: 36px;
+        color: rgb(0,0,0);
+        text-transform: uppercase;
+        margin: 8px 0 0 0;
+      }
+      section#section-2 > div > div > div > p {
+        font-family: patimura-b;
+        font-size: 24px;
+        margin: 0;
+      }
+      section#section-2 > div > div > div > p.event-title {
+        margin-bottom: 8px;
+        min-height: 72px
+      }
+      section#section-2 > div > div > div > a.button,
+      section#section-6 > div > div > div > a.button {
+        width: fit-content;
+        padding: 4px 29px 0 29px;
+      }
+
+      /* SECTION 3 */
+      section#section-3 {
+        padding-top: 29px;
+      }
+      section#section-3 > div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 58px;
+      }
+      section#section-3 > div > div#death-canopic-container {
+        background-image: url('images/Death-canopic.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-size: trim;
+      }
+      section#section-3 > div > img {
+        width: 100%;
+        height: auto;
+      }
+      section#section-3 h2 {
+        margin-top: 29px;
+      }
+      section#section-3 p:last-child {
+        margin-bottom: 29px;
+      }
+
+      /* SECTION 4 */
+      section#section-4 {
+        max-width: 100vw;
+      }
+      section#section-4 > div#section-4-image-scroll {
+        margin: 0;
+        display: flex;
+        flex: auto;
+        gap: 0 10px;
+        padding: 0;
+        max-width: unset;
+      }
+      section#section-4 > div#section-4-image-scroll > div.black {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 30cqh;
+        background-color: rgba(0,0,0,0.7);
+        cursor: pointer;
+        z-index: 50;
+        padding: auto 10px;
+      }
+      section#section-4 > div#section-4-image-scroll > div.black > img {
+        width: 40px;
+        height: 40px;
+      }
+      section#section-4 > div#section-4-image-scroll > div#arrow-left-div {
+        position: absolute;
+        left: 0;
+      }
+      section#section-4 > div#section-4-image-scroll > div#arrow-right-div {
+        position: absolute;
+        right: 0;
+      }
+      section#section-4 > div#section-4-image-scroll > img.photo {
+        height: 30cqh;
+        width: auto;
+        max-width: 40cqh;
+        object-fit: cover;
+      }
+      section#section-4 > div#section-4-image-scroll > img.photo:hover{
+        opacity: 0.7;
+      }
+      section#section-4 > div#section-4-image-scroll::-webkit-scrollbar {
+        display: none;
+      }
+      section#section-4 > div#section-4-image-scroll {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow-y: hidden;
+      }
+      section#section-4 > div#section-4-image-scroll > img.photo:hover {
+        cursor: pointer;
+      }
+
+      /* SECTION 5 */
+      section#section-5a {
+        padding-top: 29px;
+      }
+      section#section-5a > h2 {
+        padding-top: 29px;
+        font-size: clamp(1rem, 4cqw, 47px);
+      }
+      /* jovi */
+      section#section-5b h2 {
+        padding-top: 58px;
+        margin-bottom: 14px;
+      }
+      div#section-5b-text details {
+        margin: 10px 0;
+      }
+      div#section-5b-text details summary {
+        font-size: 26px;
+        cursor: pointer;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+      }
+      div#section-5b-text details div p {
+        font-size: 20px;
+        margin: 10px 0 0 28px;
+      }
+
+      section#midsection {
+        height: 58px;
+      }
+      
+      section#section-6 > div > div > div > div {
+        background-color: white;
+        text-align: center;
+      }
+      section#section-6 > div > div > div > div > img {
+        max-width: 60%;
+        margin: 10% 0;
+      }
+      section#section-6 > div > div > div > h3 {
+        font-size: 24px;
+        line-height: 24px;
+        color: rgb(0,0,0);
+        margin: 8px 0 0 0;
+      }
+      section#section-6 > div > div > div > a.button {
+        margin-top: 29px;
+      }
+
+      section#section-7 > div {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 58px;
+        align-items: center;
+        padding: 58px 0;
+      }
+      section#section-7 p {
+        font-size: 18px;
+      }
+      section#section-7 img {
+        max-width: 100%;
+      }
+      section#section-7 div.vertical-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 29px;
+      }
+
+      section#section-8 > div {
+        display: flex;
+        justify-content: space-between;
+        gap: 58px;
+        padding: 58px 0;
+        font-size: 16px;
+      }
+      .nowrap {
+        white-space: nowrap;
+      }
+      section#section-8 > div > div > h3.nowrap {
+        margin-top: 0;
+      }
+      section#section-8 > div > div:nth-child(2) > p:first-child {
+        margin-top: 0;
+      }
+      section#section-8 > div > div > p {
+        font-size: 16px;
+      }
+      section#section-8 div#social-media {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+      }
+      section#section-8 div#social-media a {
+        background-color: white;
+        border: 1px solid white;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        scale: 1;
+        transition-duration: 200ms;
+      }
+      section#section-8 div#social-media a:hover {
+        scale: 1.1;
+        transition-duration: 200ms;
+      }
+      section#section-8 div#social-media a img {
+        width: 20px;
+        height: 20px;
+        margin: 10px;
+      }
+      img#goa-logo-sm {
+        display: none;
+      }
+
+      section#section-9 {
+        padding: 29px 0;
+      }
+      section#section-9.black > div > p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+      section#section-9.black a {
+        color: white;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.9);
+      }
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+      }
+      #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+      }
+      .modal-content, #caption {
+        animation-name: zoom;
+        animation-duration: 0.6s;
+      }
+      @keyframes zoom {
+        from {transform:scale(0)}
+        to {transform:scale(1)}
+      }
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      .close:hover,
+      .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
+      @media screen and (max-width: 1050px) {
+        section > div {
+          margin: 0 29px;
+        }
+      }
+      @media screen and (max-width: 1000px) {
+        section#section-5a img,
+        section#section-5b img {
+          display: none;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        section#section-2 > div > div,
+        section#section-6 > div > div {
+          display: flex;
+          flex-direction: column;
+        }
+        section#section-8 > div {
+          flex-direction: column;
+        }
+        section#section-8 > div > div > div {
+          width: 200px;
+        }
+        section#section-8 > div > div#small-lockup {
+          justify-content: space-between;
+          display: flex;
+          height: 180px;
+        }
+        section#section-8 p.nowrap {
+          margin-bottom: 0;
+        }
+        img#goa-logo-sm {
+          display: flex;
+          height: 166px;
+        }
+        img#goa-logo {
+          display: none;
+        }
+      }
+      @media only screen and (max-width: 700px){
+        .modal-content {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="white">
+      <div>
+        <a href="/" id="RAM-logo"><img src="images/Death-RAM-logo.png" alt="Royal Alberta Museum logo"></a>
+        <a class="button large-button" href="https://atms.alberta.ca/ram/DateSelection.aspx?item=12">get tickets</a>
+      </div>
+    </header>
+    <section id="section-1a" class="coral">
+      <div>
+        <img id="death-logo" src="images/Death-logo.png" alt="Death: Life's Greatest Mystery exhibition logo">
+        <img src="images/Death-bird-top.png" alt="Artistic illustration of a bird">
+      </div>
+    </section>
+    <section id="section-1b" class="white">
+      <div>
+        <div id="section-1b-text" class="white">
+          <h2>Is it the end?</h2>
+          <h2>Or the beginning?</h2>
+          <p>
+            For every living being on this planet, death is the greatest mystery of them all. The ways that we experience it, celebrate life, and wonder about what's next are part of what makes us human &mdash; yet it 's also a subject we often push aside.
+          </p>
+          <p>
+            <strong>Death: Life's Greatest Mystery</strong> invites you to consider your own "big questions" about death as you explore natural and cultural responses to life's inevitable conclusion. Through artifacts, specimens, interactives, and immersive media experiences, you'll discover amazing animal adaptations used for survival and learn how various cultures commemorate life.
+          </p>
+        </div>
+        <div id="death-bird-bottom" class="white">
+          <img src="images/Death-bird-bottom.png" alt="Artistic illustration of a bird">
+        </div>
+      </div>
+    </section>
+
+    <section id="section-2" class="beige">
+      <div>
+        <h2>Upcoming Events</h2>
+        <div>
+          <div>
+            <img src="images/event-1.jpg" alt="skeleton of an animal">
+            <h3>Drop-in Sketching</h3>
+            <p class="event-title">Bones</p>
+            <p>March 19, 5:30-7:30 PM</p>
+            <a class="button" href="https://royalalbertamuseum.ca/node/803">More info</a>
+          </div>
+          <div>
+            <img src="images/event-2.jpg" alt="some spoke thing">
+            <h3>Workshop</h3>
+            <p class="event-title">Historic Hairwork: Table Braiding</p>
+            <p>May 14, 6:30 PM</p>
+            <a class="button" href="https://royalalbertamuseum.ca/node/803">More info</a>
+          </div>
+          <div>
+            <img src="images/event-3.jpg" alt="some lady">
+            <h3>Lecture</h3>
+            <p class="event-title">Keepsakes of Remembrance: The Art of Victorian Hairwork - Zen Hansen</p>
+            <p>May 14, 10 AM - 4 PM</p>
+            <a class="button" href="https://royalalbertamuseum.ca/node/803">More info</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-3" class="white">
+      <div>
+        <div id="death-canopic-container"></div>
+        <div>
+          <h2>Explore the Exhibition</h2>
+          <p>This text was repeated twice in Kayla's mockup. What a mockery! Creative laziness! Unbelievable.</p>
+          <p>Not entirely sure what this section is/will be for, but it exists.</p>
+          <p>Now I'll just repeat the same content as I just wrote, also in a defiant act of laziness.</p>
+          <p>This text was repeated twice in Kayla's mockup. What a mockery! Creative laziness! Unbelievable. Not entirely sure what this section is/will be for, but it exists. Now I have repeated the same content as I just wrote, also in a defiant act of redundancy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-4" class="white noselect">
+      <div id="section-4-image-scroll">
+        <div id="arrow-left-div" class="black"><img id="arrow-left" src="images/arrow-left.png" alt="Left arrow"></div>
+        <img class="photo" src="images/Death-sample1.jpg" alt="Dude in the gallery">
+        <img class="photo" src="images/Death-sample2.jpg" alt="Gross, man. Why?">
+        <img class="photo" src="images/Death-sample3.jpg" alt="Are they really reading? Or just posing?">
+        <img class="photo" src="images/Death-sample4.jpg" alt="Same lady, different angle">
+        <img class="photo" src="images/Death-sample5.jpg" alt="Accurate, life-size bed bug.">
+        <img class="photo" src="images/Death-sample6.jpg" alt="Looking for your Starbucks order.">
+        <img class="photo" src="images/Death-sample7.jpg" alt="A shrine in honour of Betty White.">
+        <div id="arrow-right-div" class="black"><img id="arrow-right" src="images/arrow-right.png" alt="Right arrow"></div>
+      </div>
+    </section>
+
+    <section id="section-5a" class="white">
+      <div>
+        <div>
+          <h2>Some people fear it. Others embrace it. But all of us must eventually face it.</h2>
+          <p>Reflect on death as part of the natural cycle of life and leave with a profound new understanding of life's most universal experience.</p>
+        </div>
+        <img src="images/Death-skull-top.png" alt="Artistic illustration of a skull">
+      </div>
+    </section>
+    <section id="section-5b" class="beige">
+      <div>
+        <div id="section-5b-text" class="beige">
+          <h2>Frequently asked questions</h2>
+          <details name="group1">
+            <summary>How much is admission?</summary>
+            <div>
+              <p>Admission is included with your purchase of general admission. See our <a href="/visit">Hours and Admission</a> page for more details.</p>
+            </div>
+          </details>
+          <details name="group1">
+            <summary>What is the exhibition really about?</summary>
+            <div>
+              <p>Death: Life's Greatest Mystery explores the natural and cultural responses to death, encouraging visitors to reflect on their own beliefs and experiences surrounding this universal aspect of life.</p>
+            </div>
+          </details>
+          <details name="group1">
+            <summary>Are there any human remains included in the exhibition?</summary>
+            <div>
+              <p>No, there are no human remains in the exhibition. The exhibition features artifacts, specimens, and interactive displays that explore death from various cultural and natural perspectives. Buuuuuuut.... if you're volunteering, we'll get you in touch with Machel "The Butcher" Reeves.</p>
+            </div>
+          </details>
+          <details name="group1">
+            <summary>What am I going to see in the exhibition?</summary>
+            <div>
+              <p>The exhibition features a variety of artifacts, specimens, and interactive displays that explore death from both natural and cultural perspectives. Visitors can expect to see items such as animal adaptations for survival, cultural artifacts related to death rituals, and immersive media experiences that encourage reflection on life's greatest mystery.</p>
+            </div>
+          </details>
+          <details name="group1">
+            <summary>Does this exhbition have things for kids?</summary>
+            <div>
+              <p>Yes, the exhibition includes interactive elements and educational content designed to engage visitors of all ages, including children. Families are encouraged to explore the exhibition together and discuss the themes presented.</p>
+            </div>
+          </details>
+          <details name="group1">
+            <summary>Why did RAM choose this exhibition?</summary>
+            <div>
+              <p>RAM is committed to presenting exhibitions that provoke thought and encourage dialogue on important topics. Death: Life's Greatest Mystery offers a unique opportunity to explore a universal aspect of human experience through the lenses of culture and nature, aligning with RAM's mission to inspire curiosity and understanding.</p>
+            </div>
+          </details>
+          <details name="group1">
+            <summary>Will there be any Death related programming?</summary>
+            <div>
+              <p>Yes, RAM plans to offer a variety of programs and events related to the themes of the exhibition, including lectures, workshops, and family activities. Check our <a href="/whats-on">What's On calendar</a> for the latest updates.</p>
+            </div>
+          </details>
+        </div>
+        <div id="death-skull-bottom" class="beige">
+          <img src="images/Death-skull-bottom.png" alt="Artistic illustration of a skull">
+        </div>
+      </div>
+    </section>
+
+    <section id="midsection" class="white"></section>
+
+    <section id="section-6" class="beige">
+      <div>
+        <h2>Gift shop</h2>
+        <div>
+          <div>
+            <div><img src="images/merch-tote.jpg" alt="A tote bag with a skull design"></div>
+            <h3>Death tote | $10.95</h3>
+            <a class="button" href="https://ramshop.ca">Buy now</a>
+          </div>
+          <div>
+             <div><img src="images/merch-hoodie.jpg" alt="a man facing away from the camera wearing grey hoodie with a black skull design"></div>
+            <h3>Adult hoodie | $49.95</h3>
+            <a class="button" href="https://ramshop.ca">Buy now</a>
+          </div>
+          <div>
+            <div><img src="images/merch-youth-shirt.jpg" alt="A youth wearing a green t-shirt that says 'I saw death'"></div>
+            <h3>Youth t-shirt | $24.95</h3>
+            <a class="button" href="https://ramshop.ca">Buy now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-7" class="white">
+      <div>
+        <div>
+          <img id="death-flower-tear-left" src="images/Death-flower-tear-left.png" alt="Artistic illustration of a flower">
+        </div>
+        <div>
+          <img src="images/Death-logo-black.png" alt="Death: Life's Greatest Mystery exhibition logo">
+          <p>Cette exposition est offerte en anglais et en français.</p>
+          <p>This exhibition was organized by the Field Museum with major support provided by Lilly Endowment, Inc. and additional support from Alicia and Peter Pond.</p>
+        </div>
+        <div class="vertical-buttons">
+          <a class="button" href="/visit">Plan your visit</a>
+          <a class="button" href="/newsletter">Stay connected</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="section-8" class="beige">
+      <div>
+        <div id="small-lockup">
+          <div>
+            <h3 class="nowrap">Connect with us</h3>
+            <div id="social-media">
+              <a href="https://www.facebook.com/RoyalAlbertamuseum"><img src="images/sm-facebook.png" alt="Facebook logo"></a>
+              <a href="https://www.youtube.com/user/royalalbertamuseum"><img src="images/sm-youtube.png" alt="YouTube logo"></a>
+              <a href="https://twitter.com/RoyalAlberta"><img src="images/sm-twitter-x.png" alt="Twitter logo"></a>
+              <a href="https://instagram.com/royal_alberta_museum/"><img src="images/sm-instagram.png" alt="Instagram logo"></a>
+            </div>
+            <p class="nowrap">
+              Royal Alberta Museum<br>
+              9810 103a Ave NW, Edmonton, AB T5J 0G2
+            </p>
+          </div>
+          <div><img id="goa-logo-sm" src="images/RAM-GoA-logos.png" alt="Royal Alberta Museum logo and Government of Alberta logo"></div>
+        </div>
+        <div>
+          <p>We acknowledge that the museum sits on Treaty 6 territory, a traditional meeting grounds, gathering place, and travelling route of the Cree, Saulteaux (So-toe), Blackfoot, Métis, Dene (De-nay) and Nakota Sioux (Sue).</p>
+          <p>We acknowledge all the many First Nations, Métis, and Inuit whose footsteps have marked these lands for centuries. We honour the many generations of First Nations, Metis, and Inuit peoples who continue to call this land home, and whose strength and resiliency remain evident in the expression of diverse cultures, languages and traditions.</p>
+          <p>The Royal Alberta Museum expresses gratitude and respect for the land we use. We commit to advancing reconciliation, partnering with Indigenous peoples in our work, and creating culturally safe environments.</p>
+        </div>
+        <div><img id="goa-logo" src="images/RAM-GoA-logos.png" alt="Royal Alberta Museum logo and Government of Alberta logo"></div>
+      </div>
+    </section>
+    <section id="section-9" class="black">
+      <div>
+        <p>The user agrees to the terms & conditions set out in the <a href="https://www.alberta.ca/disclaimer.aspx">disclaimer and copyright</a>, and accepts the <a href="/about/privacy-policy">privacy policy</a>.</p>
+      </div>
+    </section>
+
+    <div id="modal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modal-image">
+      <div id="caption"></div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    var modal = document.getElementById("modal");
+
+    var photos = document.querySelectorAll("img.photo");
+    var modalImage = document.getElementById("modal-image");
+    var captionText = document.getElementById("caption");
+
+    photos.forEach(function(img) {
+      img.onclick = function(){
+        modal.style.display = "block";
+        modalImage.src = this.src;
+        captionText.innerHTML = this.alt;
+      }
+    });
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    var imageScroller = document.getElementById("section-4-image-scroll");
+    imageScroller.addEventListener('wheel', function(event) {
+      event.preventDefault();
+      this.scrollLeft += event.deltaY;
+    }, { passive: false });
+
+    var arrowLeft = document.getElementById("arrow-left-div");
+    var arrowRight = document.getElementById("arrow-right-div");
+    arrowLeft.onclick = function() {
+      imageScroller.scrollBy({ left: -500, behavior: 'smooth' });
+    }
+    arrowRight.onclick = function() {
+      imageScroller.scrollBy({ left: 500,  behavior: 'smooth' });
+    }
+  </script>
+</html>
