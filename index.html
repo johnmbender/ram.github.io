@@ -381,7 +381,8 @@
         grid-template-columns: 1fr 2fr 1fr;
         gap: 58px;
         align-items: center;
-        padding: 58px 0;
+        padding-top: 58px;
+        padding-bottom: 58px;
       }
       section#section-7 p {
         font-size: 18px;
@@ -399,7 +400,8 @@
         display: flex;
         justify-content: space-between;
         gap: 58px;
-        padding: 58px 0;
+        padding: 58px auto 0 auto;
+        margin-top: 29px;
         font-size: 16px;
       }
       .nowrap {
@@ -547,6 +549,7 @@
         }
         section#section-8 > div {
           flex-direction: column;
+          margin-bottom: 28px;
         }
         section#section-8 > div > div > div {
           width: 200px;
@@ -576,6 +579,9 @@
         section#section-8 p.nowrap {
           margin-bottom: 0;
         }
+        section#section-8 div#goa-logo-large {
+          display: none;
+        }
         img#goa-logo-sm {
           display: flex;
           float: right;
@@ -593,7 +599,7 @@
         }
         section#section-7 > div > div.vertical-buttons {
           flex-direction: row;
-          justify-content: space-between;
+          justify-content: space-around;
         }
         section#section-7 > div > div.vertical-buttons > a {
           padding-left: 29px;
@@ -835,7 +841,7 @@
           <p>We acknowledge all the many First Nations, Métis, and Inuit whose footsteps have marked these lands for centuries. We honour the many generations of First Nations, Metis, and Inuit peoples who continue to call this land home, and whose strength and resiliency remain evident in the expression of diverse cultures, languages and traditions.</p>
           <p>The Royal Alberta Museum expresses gratitude and respect for the land we use. We commit to advancing reconciliation, partnering with Indigenous peoples in our work, and creating culturally safe environments.</p>
         </div>
-        <div><img id="goa-logo" src="images/ui/RAM-GoA-logos.png" alt="Royal Alberta Museum logo and Government of Alberta logo"></div>
+        <div id="goa-logo-large"><img id="goa-logo" src="images/ui/RAM-GoA-logos.png" alt="Royal Alberta Museum logo and Government of Alberta logo"></div>
       </div>
     </section>
     <section id="section-9" class="black">
