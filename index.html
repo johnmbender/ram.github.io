@@ -113,12 +113,12 @@
       h2 {
         font-family: patimura-b;
         text-transform: uppercase;
-        font-size: clamp(1rem, 4cqw, 47px);
-        line-height: clamp(1rem, 4cqw, 47px);
+        font-size: clamp(2rem, 4cqw, 47px);
+        line-height: clamp(2rem, 4cqw, 47px);
         width: 100%;
         margin: 0;
       }
-      p, #caption {
+      p, #caption, li {
         font-family: patimura;
         font-size: 20px;
       }
@@ -175,24 +175,16 @@
       img#death-logo {
         margin: 0 0 29px 0;
       }
+
       section#section-1b > div {
-        padding-bottom: 29px;
+        display: block;
       }
-      section#section-1b > div > div {
-        max-width: 50%;
+      section#section-1b > div > h2:first-of-type {
+        margin-top: 20px;
+      }
+      section#section-1b > div img {
+        float: right;
         width: 50%;
-      }
-      section#section-1b > div > div#section-1b-text {
-        max-width: 50%;
-        width: 50%;
-        padding-top: 29px;
-      }
-      section#section-1b > div > div#death-bird-bottom {
-        width: 50%;
-        height: auto;
-      }
-      section#section-1b > div > div#death-bird-bottom > img {
-        max-width: 100%;
         height: auto;
       }
 
@@ -241,7 +233,7 @@
       }
       section#section-2 > div > div > div > p.event-title {
         margin-bottom: 8px;
-        min-height: 72px
+        min-height: 72px;
       }
       section#section-2 > div > div > div > a.button,
       section#section-6 > div > div > div > a.button {
@@ -259,21 +251,24 @@
         grid-template-rows: 1fr;
         gap: 58px;
       }
-      section#section-3 > div > div#death-canopic-container {
-        background-image: url('images/Death-canopic.png');
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-size: trim;
-      }
       section#section-3 > div > img {
         width: 100%;
         height: auto;
+      }
+      section#section-3 img#smallCanopic {
+        display: none;
+        height: auto;
+        float: right;
       }
       section#section-3 h2 {
         margin-top: 29px;
       }
       section#section-3 p:last-child {
         margin-bottom: 29px;
+      }
+      section#section-3 ul {
+        list-style-type: disc;
+        padding-left: 20px;
       }
 
       /* SECTION 4 */
@@ -340,7 +335,6 @@
         padding-top: 29px;
         font-size: clamp(1rem, 4cqw, 47px);
       }
-      /* jovi */
       section#section-5b h2 {
         padding-top: 58px;
         margin-bottom: 14px;
@@ -474,8 +468,8 @@
       .modal-content {
         margin: auto;
         display: block;
-        width: 80%;
-        max-width: 700px;
+        max-width: 80vw;
+        max-height: 80vh;
       }
       #caption {
         margin: auto;
@@ -486,6 +480,7 @@
         color: #ccc;
         padding: 10px 0;
         height: 150px;
+        font-size: 20px;
       }
       .modal-content, #caption {
         animation-name: zoom;
@@ -512,7 +507,7 @@
       }
       
       @media screen and (max-width: 1050px) {
-        section > div {
+        header > div, section > div {
           margin: 0 29px;
         }
       }
@@ -522,11 +517,33 @@
           display: none;
         }
       }
+      @media screen and (max-width: 810px) {
+        section#section-3 img#smallCanopic {
+          display: inline;
+          width: 50%;
+        }
+        section#section-3 > div > img {
+          display: none;
+        }
+        section#section-3 > div > div {
+          grid-column: 1 / span 2;
+        } 
+      }
       @media screen and (max-width: 768px) {
         section#section-2 > div > div,
         section#section-6 > div > div {
           display: flex;
           flex-direction: column;
+        }
+        section#section-2 > div > div > div > p.event-title {
+          margin-bottom: 8px;
+          min-height: unset;
+        }
+        div#section-5b-text details summary {
+          font-size: 20px;
+        }
+        div#section-5b-text details div p {
+          font-size: 16px;
         }
         section#section-8 > div {
           flex-direction: column;
@@ -539,20 +556,71 @@
           display: flex;
           height: 180px;
         }
+        section#section-8 > div > div#small-lockup > div > h3 {
+          font-size: 30px;
+        }
+        section#section-8 > div > div#small-lockup > div > div#social-media {
+          justify-content:flex-start;
+        }
+        section#section-8 > div > div#small-lockup > div > div#social-media a {
+          width: 32px;
+          height: 32px;
+          border-radius: 16px;
+          margin: 4px;
+        }
+        section#section-8 > div > div#small-lockup > div > div#social-media a img {
+          width: 16px;
+          height: 16px;
+          margin: 8px;
+        }
         section#section-8 p.nowrap {
           margin-bottom: 0;
         }
         img#goa-logo-sm {
           display: flex;
-          height: 166px;
+          float: right;
+          height: 100%;
+          max-height: 166px;
         }
         img#goa-logo {
           display: none;
         }
+        div#death-flower-tear-left {
+          display: none;
+        }
+        section#section-7 > div > div {
+          grid-column: 1 / span 3;
+        }
+        section#section-7 > div > div.vertical-buttons {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        section#section-7 > div > div.vertical-buttons > a {
+          padding-left: 29px;
+          padding-right: 29px;
+          font-size: 18px;
+        }
       }
-      @media only screen and (max-width: 700px){
+      @media screen and (max-width: 700px) {
         .modal-content {
           width: 100%;
+        }
+      }
+      @media screen and (max-width: 460px) {
+        header > div > a#RAM-logo {
+          margin: auto 0;
+          height: 40px;
+        }
+        header > div > a#RAM-logo > img {
+          height: 40px !important;
+        }
+        header > div > a.button.large-button {
+          font-size: 20px;
+          line-height: 40px;
+          height: 40px;
+          padding: 0 20px;
+          margin: 20px 0;
+          border-radius: 30px;
         }
       }
     </style>
@@ -560,31 +628,28 @@
   <body>
     <header class="white">
       <div>
-        <a href="/" id="RAM-logo"><img src="images/Death-RAM-logo.png" alt="Royal Alberta Museum logo"></a>
+        <a href="/" id="RAM-logo"><img src="images/ui/Death-RAM-logo.png" alt="Royal Alberta Museum logo"></a>
         <a class="button large-button" href="https://atms.alberta.ca/ram/DateSelection.aspx?item=12">get tickets</a>
       </div>
     </header>
     <section id="section-1a" class="coral">
       <div>
-        <img id="death-logo" src="images/Death-logo.png" alt="Death: Life's Greatest Mystery exhibition logo">
-        <img src="images/Death-bird-top.png" alt="Artistic illustration of a bird">
+        <img id="death-logo" src="images/ui/Death-logo.png" alt="Death: Life's Greatest Mystery exhibition logo">
+        <img src="images/art/Death-bird-top.png" alt="Artistic illustration of a bird">
       </div>
     </section>
+    
     <section id="section-1b" class="white">
       <div>
-        <div id="section-1b-text" class="white">
-          <h2>Is it the end?</h2>
-          <h2>Or the beginning?</h2>
-          <p>
-            For every living being on this planet, death is the greatest mystery of them all. The ways that we experience it, celebrate life, and wonder about what's next are part of what makes us human &mdash; yet it 's also a subject we often push aside.
-          </p>
-          <p>
-            <strong>Death: Life's Greatest Mystery</strong> invites you to consider your own "big questions" about death as you explore natural and cultural responses to life's inevitable conclusion. Through artifacts, specimens, interactives, and immersive media experiences, you'll discover amazing animal adaptations used for survival and learn how various cultures commemorate life.
-          </p>
-        </div>
-        <div id="death-bird-bottom" class="white">
-          <img src="images/Death-bird-bottom.png" alt="Artistic illustration of a bird">
-        </div>
+        <img src="images/art/Death-bird-bottom.png" alt="Artistic illustration of a bird">
+        <h2>Is it the end?</h2>
+        <h2>Or the beginning?</h2>
+        <p>
+          For every living being on this planet, death is the greatest mystery of them all. The ways that we experience it, celebrate life, and wonder about what's next are part of what makes us human &mdash; yet it 's also a subject we often push aside.
+        </p>
+        <p>
+          <strong>Death: Life's Greatest Mystery</strong> invites you to consider your own "big questions" about death as you explore natural and cultural responses to life's inevitable conclusion. Through artifacts, specimens, interactives, and immersive media experiences, you'll discover amazing animal adaptations used for survival and learn how various cultures commemorate life.
+        </p>
       </div>
     </section>
 
@@ -593,21 +658,21 @@
         <h2>Upcoming Events</h2>
         <div>
           <div>
-            <img src="images/event-1.jpg" alt="skeleton of an animal">
+            <img src="images/events/event-1.jpg" alt="skeleton of an animal">
             <h3>Drop-in Sketching</h3>
             <p class="event-title">Bones</p>
             <p>March 19, 5:30-7:30 PM</p>
             <a class="button" href="https://royalalbertamuseum.ca/node/803">More info</a>
           </div>
           <div>
-            <img src="images/event-2.jpg" alt="some spoke thing">
+            <img src="images/events/event-2.jpg" alt="some spoke thing">
             <h3>Workshop</h3>
             <p class="event-title">Historic Hairwork: Table Braiding</p>
             <p>May 14, 6:30 PM</p>
             <a class="button" href="https://royalalbertamuseum.ca/node/803">More info</a>
           </div>
           <div>
-            <img src="images/event-3.jpg" alt="some lady">
+            <img src="images/events/event-3.jpg" alt="some lady">
             <h3>Lecture</h3>
             <p class="event-title">Keepsakes of Remembrance: The Art of Victorian Hairwork - Zen Hansen</p>
             <p>May 14, 10 AM - 4 PM</p>
@@ -619,28 +684,37 @@
 
     <section id="section-3" class="white">
       <div>
-        <div id="death-canopic-container"></div>
+        <img src="images/art/Death-canopic.png" alt="Artistic illustration of a canopic jar">
         <div>
+          <img id="smallCanopic" src="images/art/Death-canopic.png" alt="Artistic illustration of a canopic jar">
           <h2>Explore the Exhibition</h2>
-          <p>This text was repeated twice in Kayla's mockup. What a mockery! Creative laziness! Unbelievable.</p>
-          <p>Not entirely sure what this section is/will be for, but it exists.</p>
-          <p>Now I'll just repeat the same content as I just wrote, also in a defiant act of laziness.</p>
-          <p>This text was repeated twice in Kayla's mockup. What a mockery! Creative laziness! Unbelievable. Not entirely sure what this section is/will be for, but it exists. Now I have repeated the same content as I just wrote, also in a defiant act of redundancy.</p>
+          <p>Visitors will explore more than 100 objects and specimens from the Field Museum’s Anthropology, Zoology, and Geology collections, plus a few extra items from the RAM collection. Highlights include:</p>
+          <ul>
+            <li>A <strong>whale fall diorama</strong>, capturing how the death of a whale can create the birth of an entire ecosystem, its body is a bonanza of nutrients on the cold, empty sea floor. A single whale can support hundreds of species for decades—including some that scientists have never observed anywhere else.</li>
+            <li>An <strong>ofrenda</strong> created by Chicago artist Norma Rios Sierra to honour her departed family and ancestors, that is highly ornamental and includes immortal iconic calaca figurines (skull or skeleton figures). Such ofrenda are often created as household memorials for the traditional Mexican celebration of Day of the Dead (Día de los Muertos).</li>
+            <li>A <strong>boat-shaped fantasy coffin</strong> for a Ghanaian fisherman honours the dead by burying them in a manner that symbolizes the life of the individual who died. This nine-foot coffin, with rowers and oars, is also a symbol for the passage from this world into the afterlife.</li>
+            <li>A <strong>Model of a tardigrade</strong>, a microscopic animal that has evolved to possess some clever tricks to evade death and survive in some of the harshest conditions imaginable on Earth.</li>
+            <li><strong>There are no human remains in the exhibition.</strong></li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section id="section-4" class="white noselect">
       <div id="section-4-image-scroll">
-        <div id="arrow-left-div" class="black"><img id="arrow-left" src="images/arrow-left.png" alt="Left arrow"></div>
-        <img class="photo" src="images/Death-sample1.jpg" alt="Dude in the gallery">
-        <img class="photo" src="images/Death-sample2.jpg" alt="Gross, man. Why?">
-        <img class="photo" src="images/Death-sample3.jpg" alt="Are they really reading? Or just posing?">
-        <img class="photo" src="images/Death-sample4.jpg" alt="Same lady, different angle">
-        <img class="photo" src="images/Death-sample5.jpg" alt="Accurate, life-size bed bug.">
-        <img class="photo" src="images/Death-sample6.jpg" alt="Looking for your Starbucks order.">
-        <img class="photo" src="images/Death-sample7.jpg" alt="A shrine in honour of Betty White.">
-        <div id="arrow-right-div" class="black"><img id="arrow-right" src="images/arrow-right.png" alt="Right arrow"></div>
+        <div id="arrow-left-div" class="black"><img id="arrow-left" src="images/ui/arrow-left.png" alt="Left arrow"></div>
+        <img class="photo" src="images/photos/photo01.jpg" alt="&copy; Field Museum, Michelle Kuo">
+        <img class="photo" src="images/photos/photo02.jpg" alt="&copy; Field Museum, Michelle Kuo">
+        <img class="photo" src="images/photos/photo03.jpg" alt="&copy; Field Museum, Michelle Kuo">
+        <img class="photo" src="images/photos/photo04.jpg" alt="&copy; Field Museum, Michelle Kuo">
+        <img class="photo" src="images/photos/photo05.jpg" alt="&copy; Field Museum, Michelle Kuo">
+        <img class="photo" src="images/photos/photo06.jpg" alt="&copy; Field Museum, Michelle Kuo">
+        <img class="photo" src="images/photos/photo07.jpg" alt="&copy; Field Museum, Michelle Kuo">
+        <img class="photo" src="images/photos/photo08.jpg" alt="&copy; Field Museum, artwork by Blue Rhino Studios">
+        <img class="photo" src="images/photos/photo09.jpg" alt="&copy; Field Museum, Michelle Kuo">
+        <img class="photo" src="images/photos/photo10.jpg" alt="&copy; Field Museum, Michelle Kuo">
+        <img class="photo" src="images/photos/photo11.jpg" alt="&copy; Field Museum, Michelle Kuo">
+        <div id="arrow-right-div" class="black"><img id="arrow-right" src="images/ui/arrow-right.png" alt="Right arrow"></div>
       </div>
     </section>
 
@@ -650,7 +724,7 @@
           <h2>Some people fear it. Others embrace it. But all of us must eventually face it.</h2>
           <p>Reflect on death as part of the natural cycle of life and leave with a profound new understanding of life's most universal experience.</p>
         </div>
-        <img src="images/Death-skull-top.png" alt="Artistic illustration of a skull">
+        <img src="images/art/Death-skull-top.png" alt="Artistic illustration of a skull">
       </div>
     </section>
     <section id="section-5b" class="beige">
@@ -660,48 +734,37 @@
           <details name="group1">
             <summary>How much is admission?</summary>
             <div>
-              <p>Admission is included with your purchase of general admission. See our <a href="/visit">Hours and Admission</a> page for more details.</p>
+              <p>Admission is included with your purchase of general admission. See our <a href="/visit">Hours and Admission</a> page for prices and more details.</p>
             </div>
           </details>
           <details name="group1">
-            <summary>What is the exhibition really about?</summary>
+            <summary>What is <em>Death: Life's Greatest Mystery</em> about?</summary>
             <div>
-              <p>Death: Life's Greatest Mystery explores the natural and cultural responses to death, encouraging visitors to reflect on their own beliefs and experiences surrounding this universal aspect of life.</p>
-            </div>
-          </details>
-          <details name="group1">
-            <summary>Are there any human remains included in the exhibition?</summary>
-            <div>
-              <p>No, there are no human remains in the exhibition. The exhibition features artifacts, specimens, and interactive displays that explore death from various cultural and natural perspectives. Buuuuuuut.... if you're volunteering, we'll get you in touch with Machel "The Butcher" Reeves.</p>
-            </div>
-          </details>
-          <details name="group1">
-            <summary>What am I going to see in the exhibition?</summary>
-            <div>
-              <p>The exhibition features a variety of artifacts, specimens, and interactive displays that explore death from both natural and cultural perspectives. Visitors can expect to see items such as animal adaptations for survival, cultural artifacts related to death rituals, and immersive media experiences that encourage reflection on life's greatest mystery.</p>
+              <p>Originally from the Field Museum in Chicago, <em>Death: Life's Greatest Mystery</em> invites visitors to consider their own “big questions” about death as they explore natural and cultural responses to life's inevitable conclusion. Through artifacts, specimens, interactives, and immersive media experiences,visitors will discover amazing animal adaptations for survival and learn how various cultures commemorate life. Reflect on death as part of the cycle of life and leave with a profound new understanding of life's most universal experience.</p>
             </div>
           </details>
           <details name="group1">
             <summary>Does this exhbition have things for kids?</summary>
             <div>
-              <p>Yes, the exhibition includes interactive elements and educational content designed to engage visitors of all ages, including children. Families are encouraged to explore the exhibition together and discuss the themes presented.</p>
+              <p><em>Death: Life's Greatest Mystery</em> is designed to be accessible for visitors of all ages, and includes some interactives, dioramas, and activities that our younger visitors will enjoy. We understand some visitors may feel uncertain about whether the <em>Death: Life's Greatest Mystery</em> exhibition is suitable for their children. The exhibition is intended to create a safe space to explore a variety of perspectives and practices around death, with the aim of softening this usually 'taboo' or uncomfortable subject.</p>
+              <p>However, this exhibition is an optional part of a RAM visit, and visitors are welcome to explore the rest of the museum's permanent and temporary exhibitions if they are not interested in exploring this feature exhibition.</p>
             </div>
           </details>
           <details name="group1">
             <summary>Why did RAM choose this exhibition?</summary>
             <div>
-              <p>RAM is committed to presenting exhibitions that provoke thought and encourage dialogue on important topics. Death: Life's Greatest Mystery offers a unique opportunity to explore a universal aspect of human experience through the lenses of culture and nature, aligning with RAM's mission to inspire curiosity and understanding.</p>
+              <p>We seek out feature exhibitions that showcase different perspectives and stories than what we can share in our permanent galleries. <em>Death: Life's Greatest Mystery</em> shares both natural and anthropological stories that are outside the scope of RAM's collections and galleries - for example, a Mexican ofrenda used in celebrations of Day of the Dead, a Ghanian fantasy coffin, or a diorama of a whale fall. Each of the stories presented in <em>Death: Life's Greatest Mystery</em> help us share a greater diversity of the cultural and natural world with Albertans.</p>
             </div>
           </details>
           <details name="group1">
             <summary>Will there be any Death related programming?</summary>
             <div>
-              <p>Yes, RAM plans to offer a variety of programs and events related to the themes of the exhibition, including lectures, workshops, and family activities. Check our <a href="/whats-on">What's On calendar</a> for the latest updates.</p>
+              <p>Absolutely! We've got lots planned during the Death exhibition residency at RAM. Stay tuned to RAM's social media accounts or sign up for our e-newsletter for news on these upcoming events and programming and more! You can also always check out our <a href="/whats-on">What's On Calendar</a> on our website for more details.</p>
             </div>
           </details>
         </div>
         <div id="death-skull-bottom" class="beige">
-          <img src="images/Death-skull-bottom.png" alt="Artistic illustration of a skull">
+          <img src="images/art/Death-skull-bottom.png" alt="Artistic illustration of a skull">
         </div>
       </div>
     </section>
@@ -713,17 +776,17 @@
         <h2>Gift shop</h2>
         <div>
           <div>
-            <div><img src="images/merch-tote.jpg" alt="A tote bag with a skull design"></div>
+            <div><img src="images/merch/merch-tote.jpg" alt="A tote bag with a skull design"></div>
             <h3>Death tote | $10.95</h3>
             <a class="button" href="https://ramshop.ca">Buy now</a>
           </div>
           <div>
-             <div><img src="images/merch-hoodie.jpg" alt="a man facing away from the camera wearing grey hoodie with a black skull design"></div>
+             <div><img src="images/merch/merch-hoodie.jpg" alt="a man facing away from the camera wearing grey hoodie with a black skull design"></div>
             <h3>Adult hoodie | $49.95</h3>
             <a class="button" href="https://ramshop.ca">Buy now</a>
           </div>
           <div>
-            <div><img src="images/merch-youth-shirt.jpg" alt="A youth wearing a green t-shirt that says 'I saw death'"></div>
+            <div><img src="images/merch/merch-youth-shirt.jpg" alt="A youth wearing a green t-shirt that says 'I saw death'"></div>
             <h3>Youth t-shirt | $24.95</h3>
             <a class="button" href="https://ramshop.ca">Buy now</a>
           </div>
@@ -733,11 +796,11 @@
 
     <section id="section-7" class="white">
       <div>
-        <div>
-          <img id="death-flower-tear-left" src="images/Death-flower-tear-left.png" alt="Artistic illustration of a flower">
+        <div id="death-flower-tear-left">
+          <img src="images/art/Death-flower-tear-left.png" alt="Artistic illustration of a flower">
         </div>
         <div>
-          <img src="images/Death-logo-black.png" alt="Death: Life's Greatest Mystery exhibition logo">
+          <img src="images/ui/Death-logo-black.png" alt="Death: Life's Greatest Mystery exhibition logo">
           <p>Cette exposition est offerte en anglais et en français.</p>
           <p>This exhibition was organized by the Field Museum with major support provided by Lilly Endowment, Inc. and additional support from Alicia and Peter Pond.</p>
         </div>
@@ -754,24 +817,25 @@
           <div>
             <h3 class="nowrap">Connect with us</h3>
             <div id="social-media">
-              <a href="https://www.facebook.com/RoyalAlbertamuseum"><img src="images/sm-facebook.png" alt="Facebook logo"></a>
-              <a href="https://www.youtube.com/user/royalalbertamuseum"><img src="images/sm-youtube.png" alt="YouTube logo"></a>
-              <a href="https://twitter.com/RoyalAlberta"><img src="images/sm-twitter-x.png" alt="Twitter logo"></a>
-              <a href="https://instagram.com/royal_alberta_museum/"><img src="images/sm-instagram.png" alt="Instagram logo"></a>
+              <a href="https://www.facebook.com/RoyalAlbertamuseum"><img src="images/ui/sm-facebook.png" alt="Facebook logo"></a>
+              <a href="https://www.youtube.com/user/royalalbertamuseum"><img src="images/ui/sm-youtube.png" alt="YouTube logo"></a>
+              <a href="https://twitter.com/RoyalAlberta"><img src="images/ui/sm-twitter-x.png" alt="Twitter logo"></a>
+              <a href="https://instagram.com/royal_alberta_museum/"><img src="images/ui/sm-instagram.png" alt="Instagram logo"></a>
             </div>
             <p class="nowrap">
               Royal Alberta Museum<br>
-              9810 103a Ave NW, Edmonton, AB T5J 0G2
+              9810 103a Ave NW, Edmonton<br>
+              AB T5J 0G2
             </p>
           </div>
-          <div><img id="goa-logo-sm" src="images/RAM-GoA-logos.png" alt="Royal Alberta Museum logo and Government of Alberta logo"></div>
+          <img id="goa-logo-sm" src="images/ui/RAM-GoA-logos.png" alt="Royal Alberta Museum logo and Government of Alberta logo">
         </div>
         <div>
           <p>We acknowledge that the museum sits on Treaty 6 territory, a traditional meeting grounds, gathering place, and travelling route of the Cree, Saulteaux (So-toe), Blackfoot, Métis, Dene (De-nay) and Nakota Sioux (Sue).</p>
           <p>We acknowledge all the many First Nations, Métis, and Inuit whose footsteps have marked these lands for centuries. We honour the many generations of First Nations, Metis, and Inuit peoples who continue to call this land home, and whose strength and resiliency remain evident in the expression of diverse cultures, languages and traditions.</p>
           <p>The Royal Alberta Museum expresses gratitude and respect for the land we use. We commit to advancing reconciliation, partnering with Indigenous peoples in our work, and creating culturally safe environments.</p>
         </div>
-        <div><img id="goa-logo" src="images/RAM-GoA-logos.png" alt="Royal Alberta Museum logo and Government of Alberta logo"></div>
+        <div><img id="goa-logo" src="images/ui/RAM-GoA-logos.png" alt="Royal Alberta Museum logo and Government of Alberta logo"></div>
       </div>
     </section>
     <section id="section-9" class="black">
@@ -794,13 +858,19 @@
     var modalImage = document.getElementById("modal-image");
     var captionText = document.getElementById("caption");
 
+    var currentModalImageIndex = -1;
+
     photos.forEach(function(img) {
-      img.onclick = function(){
-        modal.style.display = "block";
-        modalImage.src = this.src;
-        captionText.innerHTML = this.alt;
+      img.onclick = function() {
+        currentModalImageIndex = Array.from(photos).indexOf(this);
+        showModalImage(currentModalImageIndex);
       }
     });
+    function showModalImage(index) {
+      modal.style.display = "block";
+      modalImage.src = photos[index].src;
+      captionText.innerHTML = photos[index].alt;
+    }
     var span = document.getElementsByClassName("close")[0];
 
     span.onclick = function() {
@@ -808,18 +878,30 @@
     }
 
     var imageScroller = document.getElementById("section-4-image-scroll");
-    imageScroller.addEventListener('wheel', function(event) {
-      event.preventDefault();
-      this.scrollLeft += event.deltaY;
-    }, { passive: false });
 
     var arrowLeft = document.getElementById("arrow-left-div");
     var arrowRight = document.getElementById("arrow-right-div");
     arrowLeft.onclick = function() {
-      imageScroller.scrollBy({ left: -500, behavior: 'smooth' });
+      if (modal.style.display == 'none')
+        imageScroller.scrollBy({ left: -500, behavior: 'smooth' });
+      else {
+        currentModalImageIndex--;
+        if (currentModalImageIndex < 0) {
+          currentModalImageIndex = photos.length - 1;
+        }
+        showModalImage(currentModalImageIndex);
+      }
     }
     arrowRight.onclick = function() {
-      imageScroller.scrollBy({ left: 500,  behavior: 'smooth' });
+      if (modal.style.display == 'none')
+        imageScroller.scrollBy({ left: 500,  behavior: 'smooth' });
+      else {
+        currentModalImageIndex++;
+        if (currentModalImageIndex >= photos.length) {
+          currentModalImageIndex = 0;
+        }
+        showModalImage(currentModalImageIndex);
+      }
     }
   </script>
 </html>
