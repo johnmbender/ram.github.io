@@ -128,6 +128,21 @@
       summary {
         font-family: patimura;
         font-size: 28px;
+        list-style: none;
+        cursor: pointer;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::before {
+        content: ' ▶'; /* Right-facing triangle */
+        margin-right: 1ch;
+        display: inline-block;
+        transition: transform 0.2s; /* Optional: adds a smooth rotation */
+      }
+      details[open] summary::before {
+        content: ' ▼'; /* Down-facing triangle */
+        transform: rotate(0deg); /* Reverts any rotation if needed */
       }
       .noselect {
         user-select: none;
